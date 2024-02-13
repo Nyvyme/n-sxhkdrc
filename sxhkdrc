@@ -1,0 +1,57 @@
+# Starting Applications
+super + p
+	rofi -show run
+
+super + shift + Return
+	alacritty
+
+super + shift + f
+	firefox-bin
+
+super + e
+	pcmanfm
+
+Print
+	/home/nyvyme/./scrshot.sh
+
+# Closing Window (or killing it)
+super + {_,shift + }c
+	bspc node -{c,k}
+
+# Reload SXHKD Config
+super + shift + e
+	pkill -USR1 -x sxhkd
+
+# Monocle mode
+super + m
+	bspc desktop -l next
+
+# Swapping current window with the biggest window
+super + g
+	bspc node -s biggest.window
+
+# Changing window mode to tiled/floating
+super + {t, f, s}
+	bspc node -t {tiled,floating,fullscreen}
+
+# Move The Window
+super + {Left,Down,Up,Right}
+	bspc node -f {west,south,north,east}
+
+# Changing Current Window
+super + {_,shift + }q
+	bspc node -f {next,prev}.local.!hidden.window
+
+# Focusing Workspaces (and moving applications to it)
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+# Chosing direction in which new window would appear
+super + ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+# Cancelling direction
+super + ctrl + space
+	bspc node -p cancel
+
+
